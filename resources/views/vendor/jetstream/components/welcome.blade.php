@@ -15,7 +15,7 @@
         <script type="text/javascript">
             window.addEventListener('DOMContentLoaded', (event) => {
                 console.log('DOM fully loaded and parsed');
-                let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+                let scanner = new Instascan.Scanner({ video: document.getElementById('preview'), mirror: false });
                 scanner.addListener('scan', function (content) {
                     alert('You checked in at '+ content);
                 });
