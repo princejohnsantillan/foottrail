@@ -2,15 +2,16 @@
     <div class="mt-8 text-2xl">
         Welcome to Foot Trail, {{ Auth::user()->first_name }}!
     </div>
-
-    <div class="mt-6 text-gray-500">
-
-    </div>
 </div>
 
 @if(Auth::user()->hasRole('user'))
-    <div class="bg-gray-200 bg-opacity-25 p-6">
-        <video id="preview" class="m-auto"></video>
+    <div class="bg-gray-200 bg-opacity-25 p-6 flex space-x-4">
+        <video id="preview" class="w-1/2"></video>
+        <div class="w-1/2 text-gray-500 ">
+            Your Unique QR code:
+            <img class="block my-1" src="https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl={{ Auth::user()->uuid }}" height="300" width="300" alt="{{ Auth::user()->uuid }}" />
+            UUID: {{ Auth::user()->uuid }}
+        </div>
         <script type="text/javascript">
             window.addEventListener('DOMContentLoaded', (event) => {
                 console.log('DOM fully loaded and parsed');
